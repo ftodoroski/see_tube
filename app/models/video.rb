@@ -1,4 +1,7 @@
 class Video < ApplicationRecord
+	has_one_attached :thumbnail
+	has_one_attached :clip
+
     belongs_to :user 
 	has_many :playlists_videos
 	has_many :playlists, through: :playlists_videos
@@ -12,5 +15,4 @@ class Video < ApplicationRecord
 	validates :description, length: { minimum: 1 }
 
 	validates :user_id, presence: true
-	validates :url, presence: true
 end

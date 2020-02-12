@@ -1,0 +1,20 @@
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1>Upload a video</h1>
+<%= form_for @video do |f| %>
+    <%= f.label :title%>
+    <%= f.text_field :title %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description, size: '50x10' %>
+
+    <%= f.label :clip%>
+    <%= f.file_field :clip %>
+
+    <%= f.label :thumbnail %>
+    <%= f.file_field :thumbnail %>
+
+    <%= f.submit%>
+<% end %>
