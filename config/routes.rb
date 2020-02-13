@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   get '/upload', to: 'videos#new', as: 'new_video'
   post '/videos', to: 'videos#create'
   get '/videos/:id', to: 'videos#show', as: 'video'
+
+  # get '/comments', to: 'comments#index', as: 'comments'
+  post '/comments', to: 'comments#create'
 end
   

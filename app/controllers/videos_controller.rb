@@ -11,11 +11,11 @@ class VideosController < ApplicationController
     def new
         @video = Video.new
     end
-
+    
     def create
         @video = Video.new(video_params)
         @video.user_id = session[:user_id]
-
+        
         @video.clip.attach(params[:video][:clip])
         
         if @video.save 
@@ -27,9 +27,12 @@ class VideosController < ApplicationController
             render :new
         end
     end
-
+    
     def show
         @video = Video.find_by_id(params[:id])
+        @comment = Comment.new
+        @comments = Comment.all
+        # byebug
     end
 
     private 
@@ -37,5 +40,4 @@ class VideosController < ApplicationController
     def video_params
         params.require(:video).permit(:title, :description, :user_id, :clip, :thumbnail)
     end
-
 end
