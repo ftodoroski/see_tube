@@ -112,6 +112,6 @@ class User < ApplicationRecord
                 return false #returns false if there are 5 same consecutive numbers
             end
         }
-        return true #returns true if all checks
+        return true # returns true if all checks
     end
 end
